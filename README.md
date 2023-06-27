@@ -4,4 +4,4 @@ The project incorporated the use of Figma and creating a webpage from scratch. W
 
 [Project Around The U.S] https://github.com/wearyshepherd/se_project_aroundtheus.git
 
-https://wearyshepherd.github.io/se_project_aroundtheus
+git@github.com:wearyshepherd/se_project_aroundtheus.git
