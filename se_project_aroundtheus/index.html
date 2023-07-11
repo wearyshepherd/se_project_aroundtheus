@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Around the U.S</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body class="page">
+    <div class="page__content">
+      <header class="header page__section">
+        <img
+          src="./images/logo.svg"
+          alt="Around the U.S. logo"
+          class="header__logo"
+        />
+      </header>
+
+      <main class="content">
+        <section class="profile page__section">
+          <img
+            src="./images/jacques-cousteau(1).jpg"
+            alt="Avatar"
+            class="profile__image"
+          />
+          <div class="profile__info">
+            <h1 class="profile__title">Jacques Cousteau</h1>
+            <button
+              class="profile__edit-button"
+              id="profile-edit-button"
+              aria-label="profile edit"
+            ></button>
+            <p class="profile__description">Explorer</p>
+          </div>
+          <button class="profile__add-button" aria-label="profile add"></button>
+        </section>
+
+        <section class="cards">
+          <ul class="cards__list"></ul>
+        </section>
+      </main>
+      <footer class="footer page__section">
+        <p class="footer__name">&copy; 2023 Carlos Chavez
+        </p>
+      </footer>
+    </div>
+
+    <div class="modal" id="profile-edit-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          type="button"
+          id="modal-close-button"
+        ></button>
+        <h3 class="modal__heading">Edit profile</h3>
+        <form class="modal__form">
+          <input
+            class="modal__form-input"
+            type="text"
+            name="title"
+            id="profile-title-input"
+            placeholder="Name"
+            required
+          />
+          <input
+            class="modal__form-input"
+            type="text"
+            name="description"
+            id="profile-description-input"
+            placeholder="About"
+            required
+          />
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <template id="card-template">
+      <li class="card">
+        <img class="card__img" src="" alt="" />
+        <div class="card__description">
+          <h2 class="card__img-title"></h2>
+          <button class="card__like-button" aria-label="like button"></button>
+        </div>
+      </li>
+    </template>
+
+    <script src="./scripts/index.js" defer></script>
+  </body>
+</html>
