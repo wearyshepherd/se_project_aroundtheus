@@ -106,6 +106,35 @@
         <p class="footer__copyright">&copy;2023 Around The U.S.</p>
       </footer>
     </div>
+    <div class="modal" id="profile-edit-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          type="button"
+          id="modal-close-button"
+        ></button>
+        <h3 class="modal__heading">Edit profile</h3>
+        <form class="modal__form">
+          <input
+            class="modal__form-input"
+            type="text"
+            name="title"
+            id="profile-title-input"
+            placeholder="Name"
+            required
+          />
+          <input
+            class="modal__form-input"
+            type="text"
+            name="description"
+            id="profile-description-input"
+            placeholder="About"
+            required
+          />
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
     <script src="./scripts/index.js" defer></script>
   </body>
 </html>
