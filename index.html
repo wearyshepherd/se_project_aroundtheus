@@ -48,100 +48,64 @@
       </footer>
     </div>
     <!-- Edit Modal -->
-    <div class="modal" id="edit-modal">
-      <div class="modal__container">
-        <button
-          class="modal__close"
-          id="modal-close-button"
-          type="button"
-        ></button>
-        <h2 class="modal__heading">Edit profile</h2>
-        <form class="modal__form">
-          <label class="modal__label">
-            <input
-              type="text"
-              name="title"
-              class="modal__input modal__input_type_name"
-              id="profile-title"
-              placeholder="Name"
-              minlength="2"
-              maxlength="40"
-              required
-            />
-            <span class="modal__error" id="profile-title-error"></span>
-          </label>
-          <label class="modal__label">
-            <input
-              type="text"
-              name="description"
-              class="modal__input modal__input_type_description"
-              id="profile-description"
-              placeholder="Description"
-              minlength="2"
-              maxlength="200"
-              required
-            />
-            <span class="modal__error" id="profile-description-error"></span>
-          </label>
-          <button type="submit" class="modal__button">Save</button>
+   <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
-    </div>
-
-    <!-- Add Card Modal-->
-    <div class="modal" id="add-card-modal">
-      <div class="modal__container">
-        <button class="modal__close" id="button" type="button"></button>
-        <h2 class="modal__heading">New Place</h2>
-        <form class="modal__form" id="add-card-form">
-          <label class="modal__label">
+      </div>
+      <div class="modal" id="add-card-modal">
+        <div class="modal__container">
+          <button
+            class="modal__close"
+            type="button"
+            id="card-modal-close"
+          ></button>
+          <h2 class="modal__heading">New Place</h2>
+          <form class="modal__form" name="Popup" id="add-card-form">
             <input
-              type="text"
               name="title"
-              class="modal__input modal__input_type_title"
+              class="modal__input"
+              id="card-title-input"
+              type="text"
               placeholder="Title"
-              id="modal-title-add-card"
               minlength="1"
               maxlength="30"
               required
             />
-            <span class="modal__error" id="modal-title-add-card-error"></span>
-          </label>
-          <label class="modal__label">
+            <span class="modal__error" id="card-title-input-error"></span>
             <input
-              type="url"
               name="url"
-              class="modal__input modal__input_type_url"
+              class="modal__input"
+              id="card-url-input"
+              type="url"
               placeholder="Image URL"
-              id="modal-url-add-card"
               required
             />
-            <span class="modal__error" id="modal-url-add-card-error"> </span>
-          </label>
-          <button class="modal__button" type="submit">Save</button>
-        </form>
-      </div>
+            <span class="modal__error" id="card-url-input-error"></span>
+            <button class="modal__button modal__button_disabled" type="submit" disabled>Save</button>
+          </form>
+        </div>
     </div>
-    <!-- Opening Picture Modal -->
-    <div class="modal" id="card-image">
+    <div class="modal" id="preview-image">
       <div class="modal__image-container">
-        <h2 class="modal__title"></h2>
-        <button class="modal__image-close-button" type="button"></button>
-        <img class="modal__card-image-preview" src="#" alt="" />
+        <button class="modal__close modal__close_type_preview"
+        id="preview-image-close"
+        type="button"
+        ></button>
+        <img class="modal__image" alt="Preview" src="#"/>
+        <h5 class="modal__preview-title"></h5>
       </div>
     </div>
-
     <template id="card-template">
       <li class="card">
         <img class="card__image" src="" alt="" />
-        <div class="card__description">
-          <h2 class="card__title"></h2>
+        <button type="button" class="card__delete-button"></button>
+        <div class="card__title">
+          <h2 class="card__description"></h2>
           <button class="card__like-button" type="button"></button>
-          <button class="card__delete-button" type="" button></button>
-        </div>
-      </li>
+          </div>
+        </li>
     </template>
-    <script src="./scripts/validation.js" defer></script>
-    <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>
