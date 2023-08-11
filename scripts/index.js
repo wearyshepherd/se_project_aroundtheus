@@ -131,7 +131,7 @@ function getCardElement(data) {
   return cardElement;
 }
 
-const submitButton = formEl.querySelector(options.submitButtonSelector)
+cardPreviewCloseButton.addEventListener("click", () => {
   closeModal(cardImageModal);
 });
 
@@ -145,13 +145,13 @@ profileEditButton.addEventListener("click", () => {
   toggleButtonState([nameInput, jobInput], editProfileSubmitButton, config);
   openModal(editProfileModal);
 });
-const submitButton = formEl.querySelector(options.submitButtonSelector)
+profileModalCloseButton.addEventListener("click", () =>
   closeModal(editProfileModal)
 );
 
 // Add New Card
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
-const submitButton = formEl.querySelector(options.submitButtonSelector)
+addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
 );
 
