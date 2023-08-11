@@ -133,7 +133,7 @@ function getCardElement(data) {
 
 
   closeModal(cardImageModal);
-});
+}
 
 // Form Listerners
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
