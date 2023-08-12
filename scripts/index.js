@@ -131,7 +131,9 @@ function getCardElement(data) {
   return cardElement;
 }
 
-closeModal(cardImageModal);
+cardPreviewCloseButton.addEventListener("click", () => {
+  closeModal(cardImageModal);
+});
 
 // Form Listerners
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
@@ -143,13 +145,13 @@ profileEditButton.addEventListener("click", () => {
   toggleButtonState([nameInput, jobInput], editProfileSubmitButton, config);
   openModal(editProfileModal);
 });
-
+profileModalCloseButton.addEventListener("click", () =>
   closeModal(editProfileModal)
 );
 
 // Add New Card
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
-
+addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
 );
 
