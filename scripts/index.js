@@ -152,8 +152,6 @@ addNewCardButton.addEventListener("click", () => openModal(addCardModal));
   closeModal(addCardModal)
 );
 
-initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
-
 const handleEscUp = (evt) => {
   if (evt.key === "Escape") {
     const activeModal = document.querySelector(".modal_is-opened");
