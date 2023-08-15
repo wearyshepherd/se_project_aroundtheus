@@ -131,6 +131,10 @@ function getCardElement(data) {
   return cardElement;
 }
 
+cardPreviewCloseButton.addEventListener("click", () => {
+  closeModal(cardImageModal);
+});
+
 // Form Listerners
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
