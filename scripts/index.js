@@ -131,10 +131,6 @@ function getCardElement(data) {
   return cardElement;
 }
 
-{ 
-  closeModal(cardImageModal);
-}
-
 // Form Listerners
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
