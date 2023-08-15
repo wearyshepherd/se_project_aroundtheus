@@ -143,7 +143,7 @@ profileEditButton.addEventListener("click", () => {
   jobInput.value = profileDescription.textContent;
   toggleButtonState([nameInput, jobInput], editProfileSubmitButton, config);
   openModal(editProfileModal);
-});
+);
 
   closeModal(editProfileModal)
 );
