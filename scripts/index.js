@@ -131,7 +131,7 @@ function getCardElement(data) {
   return cardElement;
 }
 
-{
+
   closeModal(cardImageModal);
 });
 
