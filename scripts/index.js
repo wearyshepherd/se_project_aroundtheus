@@ -146,8 +146,6 @@ profileEditButton.addEventListener("click", () => {
 });
 
   closeModal(editProfileModal)
-);
-
 // Add New Card
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 
