@@ -131,9 +131,6 @@ function getCardElement(data) {
   return cardElement;
 }
 
-{
-  closeModal(cardImageModal);
-});
 
 // Form Listerners
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
@@ -146,14 +143,12 @@ profileEditButton.addEventListener("click", () => {
   openModal(editProfileModal);
 });
 
-  closeModal(editProfileModal)
-);
+
 
 // Add New Card
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 
-  closeModal(addCardModal)
-);
+
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 
