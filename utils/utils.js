@@ -1,72 +1,29 @@
-import {
-  openPopup,
-  // closePopup,
-  // isEscEvent,
-  // handleOverlay,
-} from "../utils/utils.js";
+export function openPopup(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keyup", isEscEvent);
+}
 
-const imgPreviewModal = document.querySelector("#preview-image-modal");
-const previewText = document.querySelector(".modal__image-title");
-const image = imgPreviewModal.querySelector(".modal__image-preview");
+export function closePopup(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keyup", isEscEvent);
+}
 
-export default class Card {
-  constructor(cardData, cardSelector) {
-    this._name = cardData.name;
-    this._link = cardData.link;
-    this._cardSelector = cardSelector;
+//close the popup when the Esc button is pressed
+export function isEscEvent(evt) {
+  evt.preventDefault();
+  if (evt.key === "Escape") {
+    const modals = document.querySelectorAll(".modal");
+    modals.forEach((modal) => {
+      const openedPopup = modal.classList.contains("modal_opened");
+      if (openedPopup) {
+        closePopup(modal);
+      }
+    });
   }
+}
 
-  _setEventListeners() {
-    this._cardElement
-      .querySelector(".card__image")
-      .addEventListener("click", () => {
-        this._handleImageClick();
-      });
-
-    this._cardElement
-      .querySelector(".card__like-button")
-      .addEventListener("click", () => {
-        this._handleLikeIcon();
-      });
-
-    this._cardElement
-      .querySelector(".card__delete-button")
-      .addEventListener("click", () => {
-        this._handleDeleteIcon();
-      });
-  }
-
-  _handleDeleteIcon() {
-    this._cardElement.remove();
-    this._cardElement = null;
-  }
-
-  _handleLikeIcon() {
-    this._cardElement
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_active");
-  }
-
-  _handleImageClick() {
-    image.src = this._link;
-    image.alt = this._name;
-    previewText.textContent = this._name;
-    openPopup(imgPreviewModal);
-  }
-
-  getView() {
-    this._cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
-    this._renderCard();
-    this._setEventListeners();
-    return this._cardElement;
-  }
-
-  _renderCard() {
-    this._cardElement.querySelector(".card__title").textContent = this._name;
-    this._cardElement.querySelector(".card__image").src = this._link;
-    this._cardElement.querySelector(".card__image").alt = this._name;
+export function handleOverlay(evt) {
+  if (evt.target.classList.contains("modal_opened")) {
+    closePopup(evt.currentTarget);
   }
 }
