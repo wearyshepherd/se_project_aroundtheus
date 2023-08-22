@@ -1,4 +1,4 @@
-Project 3 Triple Ten - A Link to sprint 7 of the course, using figma and crrating the beging of the bootcamps next project.
+Project 7 Triple Ten - A Link to sprint 7 of the course, using figma and VSCODE.
 
 LINK to GitHub pages: https://wearyshepherd.github.io/se_project_aroundtheus/
 
