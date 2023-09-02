@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Travel photo sharing site" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="travel, photo, share, globe" />
+    <meta name="author" content="Trevor Foster" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <title>Around the U.S.</title>
+  </head>
+  <body class="page">
+    <header class="header page__section">
+      <img
+        class="header__logo"
+        src="<%=require('./images/around-logo.svg')%>"
+        alt="Around the U.S. Logo"
+      />
+    </header>
+    <main class="page__section">
+      <section class="profile">
+        <img
+          class="profile__picture"
+          src="<%=require('./images/jacques-cousteau.jpg')%>"
+          alt="Profile Picture"
+        />
+        <div class="profile__info">
+          <h1 class="profile__info-name">Jacques Cousteau</h1>
+          <button
+            class="profile__edit-button"
+            aria-label="Edit Button"
+            type="button"
+          ></button>
+          <p class="profile__info-description">Explorer</p>
+        </div>
+        <button
+          class="profile__add-button"
+          aria-label="Add button"
+          type="button"
+        ></button>
+      </section>
+      <section class="content"></section>
+      <footer class="footer">
+        <p class="footer__copyright">© 2022 Around the U.S.</p>
+      </footer>
+    </main>
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="edit_profile_modal">
+      <div class="modal__container">
+        <button type="button" class="modal__exit-button"></button>
+        <h2 class="modal__container-title">Edit profile</h2>
+        <form class="modal__form" name="profile-form" id="profile-form">
+          <fieldset class="modal__form-fieldset">
+            <div class="input-field">
+              <input
+                type="text"
+                class="modal__form-input"
+                id="name"
+                name="name"
+                placeholder="Name"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <span class="modal__error-message" id="name-error"></span>
+            </div>
+            <div class="input-field">
+              <input
+                type="text"
+                class="modal__form-input"
+                id="description"
+                name="description"
+                placeholder="Description"
+                minlength="2"
+                maxlength="400"
+                required
+              />
+              <span class="modal__error-message" id="description-error"></span>
+            </div>
+          </fieldset>
+          <button type="submit" class="modal__submit-button">Save</button>
+        </form>
+      </div>
+    </div>
+    <!-- Add Image Modal -->
+    <div class="modal" id="add_image_modal">
+      <div class="modal__container">
+        <button type="button" class="modal__exit-button"></button>
+        <h2 class="modal__container-title">New Place</h2>
+        <form class="modal__form" name="add-image-form">
+          <fieldset class="modal__form-fieldset">
+            <div class="input-field">
+              <input
+                type="text"
+                class="modal__form-input modal__input-title"
+                id="title"
+                name="title"
+                placeholder="Title"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <span class="modal__error-message" id="title-error"></span>
+            </div>
+            <div class="input-field">
+              <input
+                type="url"
+                class="modal__form-input modal__input-link"
+                id="link"
+                name="link"
+                placeholder="Image Link"
+                required
+              />
+              <span class="modal__error-message" id="link-error"></span>
+            </div>
+          </fieldset>
+          <button type="submit" class="modal__submit-button">Create</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Image Popup Modal -->
+    <div class="modal modal_image" id="image-popup">
+      <div class="modal__image-container">
+        <img src="template_source" class="modal__card-image" alt="" />
+        <button
+          type="button"
+          class="modal__exit-button modal__exit-button_image"
+        ></button>
+        <h2 class="modal__image-title">New Place</h2>
+      </div>
+    </div>
+
+    <!-- Card Template -->
+    <template id="card-template">
+      <article class="content__card">
+        <img src="" class="content__card-image" alt="" />
+        <div class="content__card-items">
+          <p class="content__card-text"></p>
+          <button
+            class="content__card-delete-button"
+            aria-label="delete button"
+            type="button"
+          ></button>
+          <button
+            class="content__card-like-button"
+            aria-label="like button"
+            type="button"
+          ></button>
+        </div>
+      </article>
+    </template>
+  </body>
+</html>
