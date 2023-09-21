@@ -16,7 +16,7 @@ export const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
   },
   {
-    name: "Vanoise National Park",
+    name: "Vanoice National Park",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
   },
   {
@@ -25,25 +25,81 @@ export const initialCards = [
   },
 ];
 
-export const editButton = document.querySelector(".profile__edit-button");
-export const addImageButton = document.querySelector(".profile__add-button");
-export const nameInput = document.querySelector('input[name="name"]');
-export const descriptionInput = document.querySelector(
-  'input[name="description"]'
+/* -------------------------------------------------------------------------- */
+/*                                  Wrappers                                  */
+/* -------------------------------------------------------------------------- */
+export const cardsWrap = document.querySelector(".cards__list");
+export const profileEditPopup = document.querySelector("#profile-edit-popup");
+export const addCardPopup = document.querySelector("#add-card-popup");
+export const profileEditForm =
+  profileEditPopup.querySelector("#edit-profile-form");
+export const addCardForm = addCardPopup.querySelector("#add-card-form");
+export const viewCardImagePopup = document.querySelector("#view-image-popup");
+
+/* -------------------------------------------------------------------------- */
+/*                       // Buttons and other DOM nodes                       */
+/* -------------------------------------------------------------------------- */
+export const profileEditButton = document.querySelector("#profile-edit-button");
+export const profileCloseButton = profileEditPopup.querySelector(
+  "#editprofile-close-button"
 );
-export const profileName = document.querySelector(".profile__info-name");
+export const profileTitle = document.querySelector(".profile__title");
 export const profileDescription = document.querySelector(
-  ".profile__info-description"
+  ".profile__description"
+);
+export const cardListEl = document.querySelector(".cards__list");
+export const addCardButton = document.querySelector("#add-button");
+export const addCardCloseButton = addCardPopup.querySelector(
+  "#addcard-close-button"
+);
+export const addCardTitle = document.querySelector(".popup__title");
+export const addCardImageLink = document.querySelector(".popup__image-link");
+export const viewCardImage =
+  viewCardImagePopup.querySelector(".popup__image-view");
+export const viewCardImageCaption = document.querySelector(
+  ".popup__image-caption"
+);
+export const viewCardCloseButton = viewCardImagePopup.querySelector(
+  "#viewimage-close-button"
+);
+
+/* -------------------------------------------------------------------------- */
+/*                                // Form Data                                */
+/* -------------------------------------------------------------------------- */
+export const profileTitleInput = document.querySelector(
+  ".popup__input_type_name"
+);
+export const profileDescriptionInput = document.querySelector(
+  ".popup__input_type_description"
+);
+export const cardTitleInput = addCardForm.querySelector(
+  ".popup__input_type_title"
+);
+export const cardUrlInput = addCardForm.querySelector(".popup__input_type_url");
+export const cardFormInputs = [cardTitleInput, cardUrlInput];
+export const cardFormSubmitButton = addCardForm.querySelector(
+  ".popup__save-button"
 );
 
 export const settings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__form-input",
-  submitButtonSelector: ".modal__submit-button",
-  inactiveButtonClass: "modal__submit-button-inactive",
-  inputErrorClass: "modal__input_type_error",
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__save-button",
+  inactiveButtonClass: "popup__save-button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+export const editForm = document.querySelector("#edit-profile-form");
+export const addForm = document.querySelector("#add-card-form");
+
+export const cardsConfig = {
+  containerSelector: ".cards__list",
+  cardTemplateSelector: "#card-template",
 };
 
-export const cardTitleInput = document.querySelector('input[name="title"]');
-export const cardLinkInput = document.querySelector('input[name="link"]');
-export const cardListSelector = ".content";
+// const handleClosePopupWithEsc = (e) => {
+//     if (e.key === "Escape") {
+//       const openPopup = document.querySelector(".popup_opened");
+//       this.close(openPopup);
+//     }
+//   };
