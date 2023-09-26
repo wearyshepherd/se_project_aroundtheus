@@ -1,5 +1,6 @@
+// webpack.config.js
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin"); // connect plugin
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -17,10 +18,10 @@ module.exports = {
   stats: "errors-only",
   mode: "development",
   devServer: {
-    static: path.resolve(__dirname, "./dist"), // specifies a folder from where to serve the application and its contents
-    compress: true, // this will speed up file loading in development mode
-    port: 8080, // will open your site at localhost:8080 (you can use another port)
-    open: true, // site will open automatically in the browser after executing npm run dev
+    static: path.resolve(__dirname, "dist"),
+    compress: true,
+    port: 8080,
+    open: true,
     liveReload: true,
     hot: false,
   },
@@ -41,7 +42,6 @@ module.exports = {
         ],
       },
       {
-        // add the rule for processing files
         test: /\.(png|svg|jpg|jpeg|gif|woff(2)?|eot|ttf|otf)$/,
         type: "asset/resource",
       },
