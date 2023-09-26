@@ -2,143 +2,177 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Around the U.S.</title>
-    <link rel="shortcut icon" href="../favicon.ico" />
+    <meta name="description" content="Around the US" />
+    <meta name="author" content="Carlos Chavez" />
+    <meta name="keywords" content="us, parks, nationalparks" />
+    <title>Around the U.S</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
   </head>
   <body class="page">
     <div class="page__content">
-      <header class="header page__section">
+      <header class="header">
         <img
           class="header__image"
-          src="<%=require('./images/logo.svg')%>"
-          alt="around the us logo"
+          src="<%=require("./images/logo.svg")%>"
+          alt="Around the U.S. Logo"
         />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            class="profile__pic"
-            src="<%=require('./images/jacques-cousteau.png')%>"
-            alt="jacques cousteau profile pic"
-          />
-          <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
-            <button
-              aria-label="edit button"
-              class="profile__pencil-button"
-              type="button"
-              id="profile-edit-button"
-            ></button>
-            <p class="profile__description">Explorer</p>
+          <div class="profile__avatar">
+            <button class="profile__avatar-button" id="avatar-button" type="button"></button>
+            <img
+              class="profile__image"
+              src=""
+              alt="Avatar"
+            />
+            <!-- src="<%=require("./images/jacques-cousteau.png")%>" -->
           </div>
-          <button
-            class="profile__add-button"
-            id="add-button"
-            type="button"
-          ></button>
+          <div class="profile__info">
+            <h1 class="profile__title"></h1>
+            <!-- <h1 class="profile__title">Jacques Cousteau</h1> -->
+            <button class="profile__edit-button" type="button"></button>
+            <p class="profile__description"></p>
+            <!-- <p class="profile__description">Explorer</p> -->
+          </div>
+          <button class="profile__add-button" type="button"></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list"></ul>
         </section>
       </main>
       <footer class="footer page__section">
-        <p class="footer__copyright">&copy; 2023 Around The U.S.</p>
+        <p class="footer__copyright">&copy; 2022 Around The U.S.</p>
       </footer>
     </div>
-    <!-- edit profile popup -->
-    <section class="popup" id="profile-edit-popup">
-      <div class="popup__container">
-        <button
-          class="popup__close-button"
-          id="editprofile-close-button"
-          type="button"
-        ></button>
-        <h2 class="popup__heading">Edit Profile</h2>
-        <form class="popup__form" id="edit-profile-form" novalidate>
+
+    <!-- EDIT AVATAR IMAGE -->
+    <div class="modal" id="edit-avatar-modal">
+      <div class="modal__container modal__container_avatar">
+        <button class="modal__close-button" type="button" ></button>
+        <form class="modal__form" name="avatar-form" id="avatar-form" novalidate>
+          <p class="modal__heading">Change profile picture</p>
           <input
-            type="text"
-            class="popup__input popup__input_type_name"
-            placeholder="Name"
-            id="popup-name"
-            maxlength="40"
-            minlength="2"
-            name="name"
-            required
-          />
-          <span class="popup__error" id="popup-name-error"></span>
-          <input
-            type="text"
-            class="popup__input popup__input_type_description"
-            placeholder="About"
-            id="popup-description"
-            name="about"
-            maxlength="200"
-            minlength="2"
-            required
-          />
-          <span class="popup__error" id="popup-description-error"></span>
-          <button class="popup__save-button" type="submit">Save</button>
-        </form>
-      </div>
-    </section>
-    <!-- add card popup -->
-    <section class="popup" id="add-card-popup">
-      <div class="popup__container">
-        <button
-          class="popup__close-button"
-          id="addcard-close-button"
-          type="button"
-        ></button>
-        <h2 class="popup__heading">New Place</h2>
-        <form class="popup__form" id="add-card-form" novalidate>
-          <input
-            type="text"
-            class="popup__input popup__input_type_title"
-            placeholder="Title"
-            id="popup-title"
-            name="name"
-            required
-          />
-          <span class="popup__error" id="popup-title-error"></span>
-          <input
-            type="url"
-            class="popup__input popup__input_type_url"
+            name="avatar"
             placeholder="Image Link"
-            id="popup-image-link"
-            name="link"
+            id="avatar-link"
+            type="url"
+            class="modal__form-input modal__form-input_type_avatar"
             required
           />
-          <span class="popup__error" id="popup-image-link-error"></span>
-          <button class="popup__save-button" type="submit">Create</button>
+          <span class="modal__error" id="avatar-link-error"></span>
+          <button class="modal__button" type="submit" >Save</button>
         </form>
       </div>
-    </section>
-    <!-- view image popup -->
-    <section class="popup" id="view-image-popup">
-      <div class="popup__container popup__container_type_preview">
-        <button
-          class="popup__close-button"
-          id="viewimage-close-button"
-          type="button"
-        ></button>
-        <img src="#" alt="#" class="popup__image-view" id="popup-image-view" />
-        <p class="popup__image-caption"></p>
+    </div>
+
+    <!-- EDIT PROFILE MODAL -->
+    <div class="modal" id="edit-profile-modal">
+      <div class="modal__container">
+        <button class="modal__close" type="button"></button>
+        <p class="modal__heading">Edit Profile</p>
+        <form name="profile-form" class="modal__form" novalidate>
+          <label class="modal__label">
+            <input
+            class="modal__form-input"
+              type="text"
+              name="name"
+              placeholder="Name"
+              id="profile-title-input"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <span class="modal__error" id="profile-title-input-error"></span>
+            </label>
+            <label class="modal__label">
+            <input
+            class="modal__form-input"
+              type="text"
+              name="job"
+              placeholder="Description"
+              id="profile-description-input"
+              required
+              minlength="2"
+              maxlength="200"
+            />
+            <span class="modal__error" id="profile-description-input-error"></span>
+            </label>
+          <button class="modal__button modal__button_disabled" type="submit" disabled>Save</button>
+        </form>
       </div>
-    </section>
-    <!-- card template-->
+    </div>
+
+    <!-- ADD CARD MODAL -->
+    <div class="modal" id="add-card-modal">
+      <div class="modal__container">
+        <button class="modal__close" type="button"></button>
+        <p class="modal__heading">New place</p>
+        <form name="card-form" class="modal__form">
+          <label class="modal__label">
+						<input
+							class="modal__form-input"
+							type="text"
+							name="name"
+							placeholder="Title"
+							id="card-title-input"
+							required
+							minlength="1"
+							maxlength="30"
+						/>
+						<span class="modal__error" id="card-title-input-error"></span>
+						</label>
+						<label class="modal__label">
+						<input
+							class="modal__form-input"
+							type="url"
+							name="link"
+							placeholder="Image link"
+							id="card-image-input"
+							required
+						/>
+						<span class="modal__error" id="card-image-input-error"></span>
+						</label>
+          <button class="modal__button modal__button_disabled" type="submit" disabled>Create</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- PREVIEW MODAL -->
+    <div class="modal" id="preview-card-modal">
+      <div class="modal__container-preview">
+        <div class="modal__preview">
+          <button
+            class="modal__close modal__close_preview"
+            type="button"
+          ></button>
+          <img src="./images/lago.jpg" alt="#" class="modal__image" />
+          <p class="modal__caption"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONFIRM DELETE MODAL -->
+    <div class="modal" id="delete-modal">
+      <div class="modal__container modal__container_confirm">
+        <button class="modal__close"></button>
+        <form class="modal__form">
+          <p class="modal__heading">Are you sure?</p>
+          <button class="modal__button" type="submit">Yes</button>
+        </form>
+      </div>
+    </div>
+
     <template id="card-template">
       <li class="card">
-        <img class="card__image" src="" alt="" id="card-image" />
-        <button class="card__delete-button" type="button"></button>
+        <img src="#" alt="#" class="card__image" />
+        <button class="card__trashButton" type="button"></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button class="card__like-button" type="button"></button>
         </div>
       </li>
     </template>
-
-    <!-- <script src="./pages/index.js" defer type="module"></script> -->
   </body>
 </html>
