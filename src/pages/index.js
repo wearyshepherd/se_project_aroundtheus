@@ -219,3 +219,4 @@ cardAddBtn.addEventListener("click", () => {
   cardModal.open();
   formValidators[selectors.cardFormSelector].resetValidation();
 });
+ 

@@ -22,4 +22,4 @@ export default class UserInfo {
     this._avatarElem.src = avatar;
     this._avatarElem.alt = this._nameElem.textContent;
   }
-}
+} 

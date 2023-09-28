@@ -15,4 +15,4 @@ export default class Section {
     addItem(item) {
         this._section.prepend(item);
     };
-};
+}; 
