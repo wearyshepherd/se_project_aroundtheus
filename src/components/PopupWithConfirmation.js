@@ -8,8 +8,8 @@ export default class PopupWithConfirmation extends Popup {
     this._submitButtonText = this._submitButton.textContent;
   }
 
-  open() {
-    super.open();
+ {
+    super();
   }
 
   close() {
