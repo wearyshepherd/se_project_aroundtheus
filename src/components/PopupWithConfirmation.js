@@ -1,41 +1,38 @@
-import Popup from "./Popup";
-
+import Popup from "./Popup.js";
 export default class PopupWithConfirmation extends Popup {
-  constructor({ popupSelector, handleConfirm }) {
-    super(popupSelector);
-    this._handleConfirm = handleConfirm;
-    this._confirmButton = this._popupElement.querySelector(
-      ".modal__form-button"
-    );
+  constructor(popupSelector) {
+    super({ popupSelector });
+    this._popupForm = this._popupElement.querySelector(".modal__form");
+    this._submitButton = this._popupForm.querySelector(".modal__button");
+    this._submitButtonText = this._submitButton.textContent;
   }
+  // open() {
+  //   this._popupForm.reset();
+  //   super.open();
+  // }
+  // close() {
+  //   this._popupForm.reset();
+  //   super.close();
+  // }
 
-  renderLoading(isLoading, loading = "Deleting...") {
-    if (isLoading) {
-      this._confirmButton.textContent = loading;
+  setButtonText(submit, buttonText = "Deleting...") {
+    if (submit) {
+      this._submitButton.textContent = buttonText;
     } else {
-      this._confirmButton.textContent = "Yes";
+      this._submitButton.textContent = this._submitButtonText;
     }
   }
-
-  open(card, cardId) {
-    super.open();
-    this._card = card;
-    this._cardId = cardId;
+  setSubmitCallback(callback) {
+    this._handleFormSubmit = callback;
   }
-
   setEventListeners() {
-    super.setEventListeners();
-
-    this._confirmButton.addEventListener("click", () => {
-      // evt.preventDefault();
-      this.renderLoading(true);
-      this._handleConfirm(this._card, this._cardId)
-        .then(() => {
-          this.close();
-        })
-        .finally(() => {
-          this.renderLoading(false);
-        });
+    this._popupForm.addEventListener("submit", (evt) => {
+      this._handleFormSubmit();
+      evt.preventDefault();
     });
+    super.setEventListener();
+    // this._popupForm.addEventListener("submit", (evt) => {
+    //   evt.preventDefault();
+    // });
   }
 }
