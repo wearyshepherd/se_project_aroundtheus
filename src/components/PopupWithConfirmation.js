@@ -1,38 +1,40 @@
 import Popup from "./Popup.js";
+
 export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector) {
-    super({ popupSelector });
-    this._popupForm = this._popupElement.querySelector(".modal__form");
-    this._submitButton = this._popupForm.querySelector(".modal__button");
+    super(popupSelector);
+    this._form = this._popup.querySelector(".modal__form");
+    this._submitButton = this._popup.querySelector('.modal__button');
     this._submitButtonText = this._submitButton.textContent;
   }
-  // open() {
-  //   this._popupForm.reset();
-  //   super.open();
-  // }
-  // close() {
-  //   this._popupForm.reset();
-  //   super.close();
-  // }
+
+  open() {
+    super.open();
+  }
+
+  close() {
+    this._form.reset();
+    super.close();
+  }
 
   setButtonText(submit, buttonText = "Deleting...") {
     if (submit) {
+      console.log(this._submitButton)
       this._submitButton.textContent = buttonText;
     } else {
       this._submitButton.textContent = this._submitButtonText;
     }
   }
-  setSubmitCallback(callback) {
+
+  setSubmitAction(callback) {
     this._handleFormSubmit = callback;
   }
+
   setEventListeners() {
-    this._popupForm.addEventListener("submit", (evt) => {
+    this._form.addEventListener("submit", () => {
       this._handleFormSubmit();
-      evt.preventDefault();
     });
-    super.setEventListener();
-    // this._popupForm.addEventListener("submit", (evt) => {
-    //   evt.preventDefault();
-    // });
+    super.setEventListeners();
   }
 }
+
