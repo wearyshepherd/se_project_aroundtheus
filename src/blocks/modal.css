@@ -1,0 +1,234 @@
+.modal {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  visibility: hidden;
+  transition: visibility 0s 0.2s, opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.modal_opened {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.modal__container {
+  position: absolute;
+  width: 430px;
+  height: 330px;
+  left: 50%;
+  top: 50%;
+  border-radius: 10px;
+  background-color: white;
+  margin-left: -215px;
+  margin-top: -165px;
+  font-family: Inter, Arial, sans-serif;
+  z-index: 10;
+}
+
+.modal__container-confirm {
+  position: absolute;
+  width: 430px;
+  height: 181px;
+  left: 50%;
+  top: 50%;
+  border-radius: 10px;
+  background-color: white;
+  margin-left: -215px;
+  margin-top: -165px;
+  font-family: Inter, Arial, sans-serif;
+  z-index: 10;
+}
+
+.modal__container-avatar {
+  position: absolute;
+  width: 430px;
+  height: 272px;
+  left: 50%;
+  top: 50%;
+  border-radius: 10px;
+  background-color: white;
+  margin-left: -215px;
+  margin-top: -165px;
+  font-family: Inter, Arial, sans-serif;
+  z-index: 10;
+}
+
+.modal__header {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 34px auto 24px 36px;
+}
+
+.modal__error {
+  position: absolute;
+  display: block;
+  margin-left: 36px;
+  font-family: Inter, Arial, sans-serif;
+  color: red;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 5px;
+}
+
+.modal__input {
+  width: 358px;
+  margin: 30px auto auto 36px;
+  border: 2px;
+  border-bottom: rgba(0, 0, 0, 70) solid 1px;
+  padding-bottom: 13px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.modal__input-name_error {
+  border-bottom: red solid 1px;
+}
+
+.modal__button {
+  width: 358px;
+  height: 50px;
+  margin: 48px auto auto 36px;
+  background-color: black;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: opacity ease-in-out 0.3s;
+}
+.modal__button-confirm {
+  margin: 10px auto auto 36px;
+}
+
+.modal__button:hover:not(:disabled) {
+  opacity: 80%;
+}
+
+.modal__button_disabled {
+  opacity: 20%;
+  cursor: not-allowed;
+}
+
+.modal__image-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  object-fit: fill;
+  align-items: stretch;
+}
+
+.modal__close {
+  background-image: url(../images/close_icon.svg);
+  background-repeat: no-repeat;
+  margin: 0;
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  height: 40px;
+  width: 40px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  transition: opacity ease-in-out 1s;
+}
+
+.modal__close:hover {
+  opacity: 60%;
+}
+
+.modal__image-display {
+  margin: auto;
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.modal__image-title {
+  font-family: Inter, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 320px) and (max-width: 799px) {
+  .modal__container {
+    width: 282px;
+    height: 322px;
+    margin-left: -141px;
+    margin-top: -161px;
+    padding: 0;
+    border: 0;
+    background-color: white;
+  }
+
+  .modal__container-avatar {
+    width: 282px;
+    height: 272px;
+    margin-left: -141px;
+    margin-top: -161px;
+    padding: 0;
+    border: 0;
+    background-color: white;
+  }
+
+  .modal__container-confirm {
+    margin-bottom: 25px;
+    height: 181px;
+  }
+
+  .modal__header {
+    font-size: 18px;
+    font-weight: 900;
+    margin: 0 22px 75px 22px;
+  }
+
+  .modal__header-confirm {
+   
+    margin-bottom: 30px;
+  }
+
+  .modal__input {
+    width: 238px;
+    height: 27px;
+    padding: 0;
+    margin: 30px auto auto 36px;
+  }
+
+  .modal__button {
+    width: 238px;
+    height: 46px;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    padding: 0;
+    margin: 15px 22px 0 22px;
+  }
+
+
+  .modal__close {
+    position: relative;
+    background-image: url(../images/close_icon_mobile.svg);
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    top: -32px;
+    left: 256px;
+    height: 26px;
+    width: 26px;
+    padding: 0;
+    color: white;
+  }
+}
+
+/**/
