@@ -8,15 +8,6 @@ export default class PopupWithConfirmation extends Popup {
     this._submitButtonText = this._submitButton.textContent;
   }
 
-  open() {
-    super.open();
-  }
-
-  close() {
-    this._form.reset();
-    super.close();
-  }
-
   setButtonText(submit, buttonText = "Deleting...") {
     if (submit) {
       console.log(this._submitButton)
