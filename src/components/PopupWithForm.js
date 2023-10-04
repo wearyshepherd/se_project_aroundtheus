@@ -2,40 +2,34 @@ import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
-    super(popupSelector);
+    super({ popupSelector });
+
+    this._popupForm = this._popupElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
-    this._form = this._popup.querySelector(".modal__form");
-    this._inputList = this._form.querySelectorAll(".modal__form-input");
-    this._submitButton = this._popup.querySelector(".modal__button");
-    this._submitButtonText = this._submitButton.textContent;
   }
 
   _getInputValues() {
-    this._inputValues = {};
-    this._inputList.forEach((input) => {
-      this._inputValues[input.name] = input.value;
-    });
-    return this._inputValues;
-  }
+    this._inputList = this._popupElement.querySelectorAll(".modal__input");
 
-  setButtonText(submit, buttonText = "Saving...") {
-    if (submit) {
-      this._submitButton.textContent = buttonText;
-    } else {
-      this._submitButton.textContent = this._submitButtonText;
-    }
+    this._formValues = {};
+    this._inputList.forEach(
+      (input) => (this._formValues[input.name] = input.value)
+    );
+
+    return this._formValues;
   }
 
   setEventListeners() {
-    this._form.addEventListener("submit", () => {
-      this._data = this._getInputValues();
-      this._handleFormSubmit(this._data);
+    this._popupElement.addEventListener("submit", () => {
+      this._handleFormSubmit(this._getInputValues());
+
+      this.close();
     });
     super.setEventListeners();
   }
 
   close() {
-    this._form.reset();
+    this._popupForm.reset();
     super.close();
   }
 }
