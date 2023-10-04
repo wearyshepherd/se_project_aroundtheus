@@ -200,7 +200,7 @@ const profileModal = new PopupWithForm(
         profileModal.close();
       })
       .then(() => {
-        console.log(userInfo.getUserInfo())
+      
       })
       .catch((err) => {
         console.error(err);
