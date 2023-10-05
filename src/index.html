@@ -48,20 +48,19 @@
     </div>
 
     <!-- EDIT AVATAR IMAGE -->
-    <div class="modal" id="avatar-edit-modal">
-      <div class="modal__container">
-        <button class="modal__close" type="button"></button>
-        <h3 class="modal__heading">Change profile picture</h3>
-        <form class="modal__form" id="" edit-avatar-form>
-          <label class="modal__label">
-            <input
-              class="modal__input modal__input_type_url"
-              type="url"
-              name="avatar"
-              placeholder="Image URL"
-              id="avatar-url-input"
-              required
-            />
+    <div class="modal" id="edit-avatar-modal">
+      <div class="modal__container modal__container_avatar">
+        <button class="modal__close-button" type="button" ></button>
+        <form class="modal__form" name="avatar-form" id="avatar-form" novalidate>
+          <p class="modal__heading">Change profile picture</p>
+          <input
+            name="avatar"
+            placeholder="Image Link"
+            id="avatar-link"
+            type="url"
+            class="modal__form-input modal__form-input_type_avatar"
+            required
+          />
           <span class="modal__error" id="avatar-link-error"></span>
           <button class="modal__button" type="submit" >Save</button>
         </form>
