@@ -211,6 +211,7 @@
     height: 26px;
     left: calc(100% - 30px);
     margin-bottom: 13px;
+    cursor: pointer;
   }
 
   .modal__button {
