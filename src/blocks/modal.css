@@ -39,23 +39,23 @@
 
 .modal__close {
   background-image: url(../images/close_icon.svg);
-  border: none;
-  position: absolute;
-  top: -45px;
-  right: -45px;
-  background-color: transparent;
   background-repeat: no-repeat;
-  background-size: contain;
-  width: 40px;
-  height: 40px;
+    margin: 0;
+    position: absolute;
+  right: -40px;
+  top: -40px;
+    height: 40px;
+    width: 40px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
+  transition: opacity ease-in-out 1s;
 }
 
 .modal__close:hover {
-  opacity: 0.6;
-  transition: 0.5s ease-in;
-  cursor: pointer;
+  opacity: 60%;
 }
+
 
 .modal__heading {
   font-family: "Inter";
