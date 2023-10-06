@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Around the US" />
@@ -8,8 +8,8 @@
     <meta name="keywords" content="us, parks, nationalparks" />
     <title>Around the U.S</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
-  </head>
-  <body class="page">
+</head>
+<body class="page">
     <div class="page__content">
       <header class="header">
         <img
@@ -67,42 +67,44 @@
       </div>
     </div>
 
-    <!-- EDIT PROFILE MODAL -->
-    <div class="modal" id="edit-profile-modal">
-      <div class="modal__container">
-        <button class="modal__close" type="button"></button>
-        <p class="modal__heading">Edit Profile</p>
-        <form name="profile-form" class="modal__form" novalidate>
-          <label class="modal__label">
-            <input
-            class="modal__form-input"
-              type="text"
-              name="name"
-              placeholder="Name"
-              id="profile-title-input"
-              required
-              minlength="2"
-              maxlength="40"
-            />
-            <span class="modal__error" id="profile-title-input-error"></span>
-            </label>
-            <label class="modal__label">
-            <input
-            class="modal__form-input"
-              type="text"
-              name="job"
-              placeholder="Description"
-              id="profile-description-input"
-              required
-              minlength="2"
-              maxlength="200"
-            />
-            <span class="modal__error" id="profile-description-input-error"></span>
-            </label>
-          <button class="modal__button modal__button_disabled" type="submit" disabled>Save</button>
-        </form>
-      </div>
-    </div>
+        <!-- EDIT PROFILE MODAL -->
+        <div class="modal" id="edit-profile-modal">
+            <div class="modal__container">
+                <button class="modal__close" type="button"></button>
+                <p class="modal__heading">Edit Profile</p>
+                <form name="profile-form" class="modal__form" novalidate>
+                    <label class="modal__label">
+                        <input
+                            class="modal__form-input"
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                            id="profile-title-input"
+                            required
+                            minlength="2"
+                            maxlength="40"
+                            autocomplete="name"
+                        />
+                        <span class="modal__error" id="profile-title-input-error"></span>
+                    </label>
+                    <label class="modal__label">
+                        <input
+                            class="modal__form-input"
+                            type="text"
+                            name="job"
+                            placeholder="Description"
+                            id="profile-description-input"
+                            required
+                            minlength="2"
+                            maxlength="200"
+                            autocomplete="description"
+                        />
+                        <span class="modal__error" id="profile-description-input-error"></span>
+                    </label>
+                    <button class="modal__button modal__button_disabled" type="submit" disabled>Save</button>
+                </form>
+            </div>
+        </div>
 
     <!-- ADD CARD MODAL -->
     <div class="modal" id="add-card-modal">
